@@ -125,7 +125,6 @@
               * Often pre-installed on Linux systems
               * A bit of a learning curve
               * GUIs are available, but you still need the command for some of the advanced functionality
-                * I know very little about the GUIs since I'm more comfortable with the command line
             </script>
 
             <aside class="notes">
@@ -197,11 +196,9 @@
              * Assuming git is already installed
              ```
              cd test_repo
+             # Initialize git repository
              git init
-             ```
-             * You can do this in an empty directory and make files
-             * If the directory already has content
-             ```
+             # Add the contents of the current directory to be tracked by git
              git add .
              git commit -m "Initial commit"
              ```
@@ -231,6 +228,16 @@
           </section>
           <section data-markdown>
             <script type="text/template">
+              ###GitHub-Flavored Markdown
+              * GitHub supports [Markdown](http://daringfireball.net/projects/markdown/syntax) as one of the ways to format text on GitHub in issues, gists, wikis, text files.
+              * GitHub-Flavored Markdown is a variant of Markdown that includes some extra syntax and a slight change in behavior to make it more source code and GitHub-friendly.  See [here](https://help.github.com/articles/github-flavored-markdown/) for documentation.
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
               ### Committing changes
               -----------------------
               * New files need to be registered with the repository before git will "track" it.
@@ -252,13 +259,25 @@
             <aside class="notes">
             </aside>
           </section>
+          <section data-markdown>
+            <script type="text/template">
+              ###Git tutorial
+              * Full tutorial is beyond scope of this talk
+              * Atlassian has an excellent set of tutorials for Git, particularly if you are coming from Subversion.
+
+              https://www.atlassian.com/git/tutorials
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
         </section>
 
 
         <section>
           <section data-markdown>
             <script type="text/template">
-              #Tips and Tricks    
+              #Tips
             </script>
 
             <aside class="notes">
@@ -330,6 +349,22 @@
           </section>
           <section data-markdown>
             <script type="text/template">
+              ###Changing a remote's URL
+              --------------------------
+              * You can map names to remote repositories.  By default, the remote repository you clone is known as "origin"
+              * Sometimes, you want to change what "origin" points to.  Apparently, one reason may be that you want to change how you are accessing the remote Git repo--usually changing from HTTPS to SSH.  (GitHub has a [tutorial](https://help.github.com/articles/changing-a-remote-s-url/) regarding this.)
+                * When you authenticate over HTTPS, GitHub will ask for your username and password
+                * If you use SSH, you can setup SSH key authentication instead.  You can upload your public key to your GitHub profile.
+                ```
+                git remote set-url origin git@github.com:user/repo2.git
+                ```
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
               ###Using Gists for Cheatsheets
               ----------------------------
               * Make new gists here: https://gist.github.com/
@@ -339,12 +374,21 @@
               Consider this an easter egg; it's a file I keep on my hard drive that compiled all the useful commands from a GitHub training class I attended 
               [Useful Git Commands](https://gist.github.com/ldang/e6be1032c6a59cf2dbca)
 
+              * Note: While you can make public or secret gists, there is no access control on the gists themselves.  If you know the URL, you can get to the gist.
+
             </script>
 
             <aside class="notes">
             </aside>
           </section>
           </section>
+          <section data-markdown>
+            <script type="text/template">
+              #GitHub Pages
+            </script>
+
+            <aside class="notes">
+            </aside>
           <section data-markdown>
             <script type="text/template">
               ###Publishing a webpage on GitHub (1)
@@ -446,6 +490,20 @@
           <section data-markdown>
             <script type="text/template">
               # Backup slides aka more ideas   
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              * Forking
+              * Pull request
+              * Directed acyclic graphs
+              * Anaomoy of a git commit
+              * Rewriting history
+              * Git Reflog
+              * Basic merge algorithm
             </script>
 
             <aside class="notes">
