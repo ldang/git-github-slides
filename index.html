@@ -229,6 +229,29 @@
             <aside class="notes">
             </aside>
           </section>
+          <section data-markdown>
+            <script type="text/template">
+              ### Committing changes
+              -----------------------
+              * New files need to be registered with the repository before git will "track" it.
+                ```
+                # Adds the current directory and all files in it
+                git add .
+                ```
+              * By default, git only commits changes that are staged, usually using "git add"
+              ```
+                git add newfile
+                git commit -m "Adding new files"
+              ```
+              * You can just commit everything using the -a option.  But this only commits changes to tracked files.  You still need to explicitly add new files.
+              ```
+              git commit -a -m "Saving changes"
+              ```
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
         </section>
 
 
@@ -265,7 +288,7 @@
               * Find a central place to organize your repositories, no matter how trivial the repos are.
                 * The power of distributed version control is that it is *distributed*
                 * It is your backup if you mess up your working repository
-                  * Even if you lose your current work, you won't have lost everything
+                  * Even if you lose your current work, that should only set you back a few hours, not weeks
                 * This central place is easy to backup for automated backups.
                 * It is easy to identify as the place most likely to have the most complete version of the repository. 
                   * You may have use cases where you have one or more clones of the repository on various machines
