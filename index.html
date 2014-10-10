@@ -219,6 +219,7 @@
               cd git-github-talk-2014-10-09
               git remote add origin git@github.com:ldang/git-github-slides.git
               # Push a local branch to a remote repo for the first time
+              # origin is usually what we call the remote repo we cloned from
               git push -u origin master
               ```
             </script>
@@ -361,6 +362,7 @@
               ###Changing a remote's URL
               --------------------------
               * You can map names to remote repositories.  By default, the remote repository you clone is known as "origin"
+                * When you establish a link to a remote repo, you can designate a different name
               * Sometimes, you want to change what "origin" points to.  Apparently, one reason may be that you want to change how you are accessing the remote Git repo--usually changing from HTTPS to SSH.  (GitHub has a [tutorial](https://help.github.com/articles/changing-a-remote-s-url/) regarding this.)
                 * When you authenticate over HTTPS, GitHub will ask for your username and password
                 * If you use SSH, you can setup SSH key authentication instead.  You can upload your public key to your GitHub profile.
