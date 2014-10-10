@@ -68,24 +68,41 @@
         
           <section data-markdown>
             <script type="text/template">
-              # About the talk
-              * Rough draft of the sequel to [Distributed Version Control Systems (DVCS) & Mercurial](http://bit.ly/10OIsby)
-              * Goal: You all learn something you didn't know about Git or GitHub
+              ### About the talk
+              ------------------
+              * This is version 0.1 of a planned sequel to [Distributed Version Control Systems (DVCS) & Mercurial](http://bit.ly/10OIsby)
+              * Will be reprised at a future LUG talk, when I have more time to work on it
+              * All I want is for you to learn something you didn't already know about Git or GitHub
               * Questions and comments welcome; feel free to interrupt
 
-              * This presentation is written using [reveal.js framework](https://github.com/hakimel/reveal.js/)
-              * This presentation is being served on my local machine, but it is also available on GitHub
-                * The source code and commit history can be found at: [https://github.com/ldang/git-github-slides/](https://github.com/ldang/git-github-slides/)
-                * The slides can be viewed at: [https://ldang.github.io/git-github-slides]([https://ldang.github.io/git-github-slides)
+            </script>
+
+            <aside class="notes">
+            </aside>
+          <section data-markdown>
+            <script type="text/template">
+              ### About the slides
+              --------------------
+              * HTML5 presentation framework: [reveal.js framework](https://github.com/hakimel/reveal.js/)
+              * See all the iterations of my slides--yes, this was a last-minute thing
+              https://github.com/ldang/git-github-slides/
+
+              * This presentation is being served on my local machine, but it can also be viewed on GitHub
+              [https://ldang.github.io/git-github-slides
+
+              NOTE: My local copy will be more up-to-date than the GitHub copy until I'm finished.
+                  
             </script>
 
             <aside class="notes">
             </aside>
           </section>
+          </section>
           
           <section data-markdown>
             <script type="text/template">
-              # About me
+              ### About me
+              ------------
               * I spend a lot of time logged into remote Linux machines
               * I love the command line
               * I am not a Git/GitHub expert, but I have a professional interest in distributed version control
@@ -101,12 +118,14 @@
         
           <section data-markdown>
             <script type="text/template">
-              # About Git
+              ### About Git
+              -------------
               * Distributed version control system
               * "Time machine" for text files
               * Often pre-installed on Linux systems
               * A bit of a learning curve
               * GUIs are available, but you still need the command for some of the advanced functionality
+                * I know very little about the GUIs since I'm more comfortable with the command line
             </script>
 
             <aside class="notes">
@@ -115,23 +134,15 @@
           
           <section data-markdown>
             <script type="text/template">
-              # About GitHub (1)
+              ### About GitHub (1)
+              --------------------
               * Collaboration platform, originally meant for software projects
                 * Access control and organization system
                 * Git/Subversion repository hosting
-                * Online editing of files in repository through web interface
                 * Issue tracking
                 * Wiki
                 * GitHub Pages (project web pages)
                 * GitHub Gists (version-controlled pastebin)
-
-              * Popular because it is free for public repositories, and there is affordable pricing scheme if you need private repositories
-                
-              * GitHub Enterprise is self-hosted version aimed at companies that want to keep their repositories in-house
-
-              * Desktop apps: GitHub GUI for Mac, Atom text editor, Gollum wiki software
-              * Extensive Git/GitHub training material available [here](https://training.github.com/)
-
             </script>
 
             <aside class="notes">
@@ -139,18 +150,30 @@
           </section>
           <section data-markdown>
             <script type="text/template">
-              # About GitHub (2)
-              * Popular because it is free for public repositories, and there is affordable pricing scheme if you need private repositories
-                * User-friendly.  Easy to use, and you get hints all the time of how to do things
-                * Gists are basically lightweight repositories, which are great for just dumping code fragments or how-tos
-                * Encourages code remix and reuse and collaboration through forking and pull requests
+              ### About GitHub (2)
+              --------------------
+              * Free for public repositories, and there is affordable pricing scheme if you need private repositories
+              * User-friendly.  Easy to use, and you get hints all the time of how to do things
+              * Gists are basically lightweight repositories, which are great for just dumping code fragments or how-tos
+              * You can edit the files in the repository using the web interface
+              * GitHub-flavored Markdown - a source code-friendly version of Markdown to write documentation
+              * Encourages code remix and reuse and collaboration through forking and pull requests
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ### About GitHub (3)
+              --------------------
               * GitHub Enterprise is self-hosted version aimed at companies that want to keep their repositories in-house.
                 * Makes it easy for everyone to practice version control without overhead of running own server
                 * Encourages sharing of code, so we can learn from each other and not reinvent the wheel
                 * Good way to share domain knowledge because we can provide documentation as well as source code
               * Desktop apps: GitHub GUI for Mac, Atom text editor, Gollum wiki software
               * Extensive Git/GitHub training material available [here](https://training.github.com/)
-                  
+              
             </script>
 
             <aside class="notes">
@@ -169,7 +192,38 @@
           </section>
           <section data-markdown>
             <script type="text/template">
-                  
+             ### Turning a directory into a Git repository
+             ---------------------------------------------
+             * Assuming git is already installed
+             ```
+             cd test_repo
+             git init
+             ```
+             * You can do this in an empty directory and make files
+             * If the directory already has content
+             ```
+             git add .
+             git commit -m "Initial commit"
+             ```
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ### Making a new repository in GitHub
+              -----------------------------------
+              * Go to GitHub website.  (Helpful if you are already logged in.)
+              https://github.com/new
+              * Follow the instructions. GitHub gives you many options; pick the one that matches your situation
+                * This is how I posted these slides to GitHub, using a git repository I already had.
+              ```
+              cd git-github-talk-2014-10-09
+              git remote add origin git@github.com:ldang/git-github-slides.git
+              # Push a local branch to a remote repo for the first time
+              git push -u origin master
+              ```
             </script>
 
             <aside class="notes">
@@ -188,9 +242,80 @@
             </aside>
           <section data-markdown>
             <script type="text/template">
-              #Using Gists for Cheatsheets
-              Consider this an easter egg :)
+              ### Best practices for log messages
+              -----------------------------------
+              * If you are doing short log messages, you can just embed it in the commandline
+              ```
+              git commit -m "This is my log message"
+              ```
+              * If you are doing fairly long messages, then commit without "-m" option; git will open up your default text editor
+              ```
+              git commit
+              ```
+              * When writing multi-line log messages, the first line should be crafted carefully to summarize the commit.  Thre are many ways of looking at the git log, and some of them are very compact and only show the first line.  
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ### Best practices for repository management
+              --------------------------------------------
+              * Find a central place to organize your repositories, no matter how trivial the repos are.
+                * The power of distributed version control is that it is *distributed*
+                * It is your backup if you mess up your working repository
+                  * Even if you lose your current work, you won't have lost everything
+                * This central place is easy to backup for automated backups.
+                * It is easy to identify as the place most likely to have the most complete version of the repository. 
+                  * You may have use cases where you have one or more clones of the repository on various machines
+
+              * For many people, this central place is GitHub.  For other people, it is a bare repo in their home directory
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ### Bare repositories (1)
+              -------------------------
+              * A git repository normally consists of the repository (in a hidden .git folder) and the set of working files and directories that represent the state of the repository at a given point in time.
+              * The working files are only useful if you're actually working on them.  Otherwise, they just take up space.
+              * There are cases where you want a bare repository
+                * As a way to share your git repository with other people
+                * As a way to backup your git repository
+              * Bare repositories are usually initialized and cloned. Changes are synchronized via pushing and pulling.
+              ```
+              # bare repositories usually have naming convention <repo>.git
+              git init ~/my_new_repo.git
+
+              mkdir my_test
+              git clone ~/my_new_repo.git
+              touch README
+              git commit -am "Initial commit"
+              git push
+              ```
+
+              a set of files that represents the contents of the repository
+              * A bare repository is a repository that doesn't have a working a working directory
+              * 
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ###Using Gists for Cheatsheets
+              ----------------------------
+              * Make new gists here: https://gist.github.com/
+              * After you create the gist, you'll see some links in the right-hand column
+              * You can clone gists.  The advantage is that you can use your favorite text editor to edit the gist, as well as having a local copy of the gist.
+              
+              Consider this an easter egg; it's a file I keep on my hard drive that compiled all the useful commands from a GitHub training class I attended 
               [Useful Git Commands](https://gist.github.com/ldang/e6be1032c6a59cf2dbca)
+
             </script>
 
             <aside class="notes">
@@ -199,15 +324,79 @@
           </section>
           <section data-markdown>
             <script type="text/template">
-              #Adding existing repo to GitHub
-              1. Make a new repository on GitHub
-              2. GitHub gives you many options; pick the one that matches your situation
+              ###Publishing a webpage on GitHub (1)
+              --------------------------------------
+              * GitHub has a feature called [GitHub Pages](https://pages.github.com/), which is aimed to provide minor webhosting ability for project or organization websites.
+                * Many people use this feature purely to host websites or blogs or slides
+                * Documentation [here](https://help.github.com/categories/github-pages-basics/)
+            
+            </script>
 
-              This is how I posted these slides to GitHub.  I ran the following commands in the git repository I was using to keep track of these slides.
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ###Publishing a webpage on GitHub (2)
+              --------------------------------------
+              * You can manually set it up using the git command line
+                * gh-pages is a special branchname to GitHub.  It is assumed that whatever is published to the gh-pages branch can be served up by a webserver
+                * Additionally, GitHub automatically renders Markdown as HTML, so you can even publish Markdown documents and have it show up as styled HTML
+                * So basically, all you have to do is to make sure that you have a gh-pages branch and that it contains the files needed for the webpage
+                  
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ###Publishing a webpage on GitHub (3)
+              -------------------------------------
+              This is how I "published" my slides on GitHub pages
               ```
-              git remote add origin git@github.com:ldang/git-github-slides.git
-              git push -u origin master
+              # Go into my git repo, which is already connected to GitHub
+              cd git-github-talk-2014-10-09
+              # Make a new branch gh-pages
+              git checkout -b gh-pages
+              # Push this new branch back to GitHub
+              git push -u gh-pages
               ```
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ###Publishing webpages on GitHub (4)
+              --------------------------------
+              * When working with webpages, it's usually a good idea to do the editing on a development branch or on master
+              * When you are ready to update the webpage itself, then you can push those updates to the gh-pages branch
+              * GitHub has some server-side processes that does a little processing to complete the publication process. 
+              * A side effect is that your updates may take a little bit of time to go live.
+
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
+          <section data-markdown>
+            <script type="text/template">
+              ###Publishing webpages on GitHub (5)
+              --------------------------------
+              Example, where development was done on the master branch
+              ```
+              # go to gh-pages branch
+              git checkout gh-pages
+              # Bring in changes from master branch
+              git rebase master
+              # Push the changes in gh-pages to GitHub
+              git push origin gh-pages 
+              # go back to master and do more development
+              git checkout master
+              ```
+                  
             </script>
 
             <aside class="notes">
@@ -220,7 +409,10 @@
         <section data-markdown>
           <script type="text/template">
           #Questions?????
-          ###l.dang@ymail.com
+          l.dang@ymail.com
+
+          https://github.com/ldang/git-github-slides/issues
+
           </script>
 
           <aside class="notes">
@@ -228,10 +420,16 @@
         </section>
 
         <section>
-          <h1>THE END</h1>
-           
-          <h3>l.dang@ymail.com</h3>
+          <section data-markdown>
+            <script type="text/template">
+              # Backup slides aka more ideas   
+            </script>
+
+            <aside class="notes">
+            </aside>
+          </section>
         </section>
+
 
       </div>
 
